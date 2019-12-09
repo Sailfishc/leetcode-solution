@@ -6,42 +6,47 @@ public class Solution {
 
 
     public int findKthLargest(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int left = 0;
+        int right = nums.length - 1;
+        while (true) {
 
-        quickSort(nums, 0, nums.length, k);
-        return nums[k - 1];
+            final int p = partition(nums, left, right);
+            if (p + 1 == k) {
+                return nums[p];
+            } else if (p + 1 > k) {
+                right = p - 1;
+            } else {
+                left = p + 1;
+            }
+        }
     }
 
-    private void quickSort(int[] nums, int l, int r, int k) {
-        if (l >= r) {
-            return;
-        }
 
-        int p = partition(nums, l, r);
+    private int partition(int[] nums, int left, int right) {
 
-        if (p + 1 == k) {
-            return;
-        } else if (p + 1 > k) {
-            quickSort(nums, l, p - 1, k);
-        } else {
-            quickSort(nums, p + 1, r, k);
-        }
+        int v = nums[left];
+        int l = left + 1;
+        int r = right;
+        while (l <= r) {
+            if (nums[l] < v && nums[r] > v) {
+                swap(nums, l++, r--);
+            }
+            if (nums[l] >= v) {
+                l++;
+            }
 
-    }
-
-    private int partition(int[] nums, int l, int r) {
-
-        int v = nums[l];
-        int j = l;
-        for (int i = l + 1; i < r; i++) {
-            if (nums[i] < v) {
-                swap(nums, i, j + 1);
-                j++;
+            if (nums[r] <= v) {
+                r--;
             }
         }
 
-        swap(nums, l, j);
-        return j;
+        swap(nums, left, r);
+        return r;
     }
+
 
     private void swap(int[] nums, int i, int j) {
         int temp = nums[i];
