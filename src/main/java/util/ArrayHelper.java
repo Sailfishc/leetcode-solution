@@ -144,6 +144,23 @@ public class ArrayHelper {
     }
 
 
+    /**
+     * 打印数组
+     *
+     * @param arr
+     */
+    public static void printArrForChar(char[] arr) {
+        StringBuilder sb = new StringBuilder("arr=[");
+        for (char i : arr) {
+            sb.append(i)
+                    .append(", ");
+        }
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("]");
+        System.out.println(sb.toString());
+    }
+
+
 
     /**
      * 交换两个元素
