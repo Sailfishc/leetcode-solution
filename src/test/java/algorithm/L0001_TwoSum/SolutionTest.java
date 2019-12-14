@@ -3,8 +3,6 @@ package algorithm.L0001_TwoSum;
 
 import org.junit.Test;
 
-import algorithm.L0283_MoveZeros.Solution;
-import algorithm.L0283_MoveZeros.Solution2;
 import util.ArrayHelper;
 
 /**
@@ -14,5 +12,11 @@ import util.ArrayHelper;
 public class SolutionTest {
 
 
-
+    @Test
+    public void twoSum() {
+        Solution solution = new Solution();
+        int[] nums = {2, 7, 11, 15};
+        final int[] ints = solution.twoSum(nums, 9);
+        ArrayHelper.printArr(ints);
+    }
 }
