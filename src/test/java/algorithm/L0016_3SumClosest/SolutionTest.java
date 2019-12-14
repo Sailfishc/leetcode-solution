@@ -23,6 +23,9 @@ public class SolutionTest {
     @Test
     public void testThreeSumClosetFirstErrorCase() {
         int[] nums = {0, 2, 1, -3};
+        Solution solution = new Solution();
+        System.out.println(solution.threeSumClosest(nums, 1));
+        Assert.assertEquals(0, solution.threeSumClosest(nums, 1));
 
     }
 }

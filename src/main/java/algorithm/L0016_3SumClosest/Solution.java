@@ -13,7 +13,7 @@ public class Solution {
         int closest = nums[0] + nums[1] + nums[2];
         // 最接近的数值
         int diff = Math.abs(closest - target);
-        for (int i = 1; i < nums.length - 2; i++) {
+        for (int i = 0; i < nums.length - 2; i++) {
             int left = i + 1;
             int right = nums.length - 1;
             while (left < right) {
