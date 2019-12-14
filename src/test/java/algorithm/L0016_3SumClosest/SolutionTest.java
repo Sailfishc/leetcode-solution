@@ -21,7 +21,8 @@ public class SolutionTest {
 
 
     @Test
-    public void testThreeSumCloset() {
+    public void testThreeSumClosetFirstErrorCase() {
         int[] nums = {0, 2, 1, -3};
+
     }
 }
