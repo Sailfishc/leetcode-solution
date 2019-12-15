@@ -22,8 +22,9 @@ public class Solution2 {
             }
 
             String s = "";
+            // 形式：1a1b1c
             for (int i = 0; i < count.length; i++) {
-                s += String.valueOf(count[i]) + String.valueOf((char) (i + 'a'));
+                s += count[i] + (char) (i + 'a');
             }
 
             if (map.containsKey(s)) {
