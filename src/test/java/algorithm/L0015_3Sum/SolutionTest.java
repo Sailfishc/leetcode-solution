@@ -1,4 +1,4 @@
-package algorithm._L0015_3Sum;
+package algorithm.L0015_3Sum;
 
 import org.junit.Test;
 
