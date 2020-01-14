@@ -4,7 +4,7 @@ package util;
 /**
  * TreeNode
  */
-public class TreeNode {
+public class TreeNode<T> {
 
     public int val;
     public TreeNode left;
