@@ -16,8 +16,9 @@ public class L003_DeleteNodeWithAGivenKey {
         if (head == null) {
             return head;
         }
-
-        ListNode curNode = head;
+        ListNode dummyNode = new ListNode(1);
+        dummyNode.next = head;
+        ListNode curNode = dummyNode;
         while (curNode.next != null) {
             if (curNode.next.val == key) {
                 curNode.next = curNode.next.next;
@@ -25,13 +26,14 @@ public class L003_DeleteNodeWithAGivenKey {
                 curNode = curNode.next;
             }
         }
-        return head;
+        return dummyNode.next;
     }
 
     public static void main(String[] args) {
-        final ListNode listNode = ListNodeHelper.genListNode(new Integer[]{7, 14, 21, 28, 35, 42});
+//        final ListNode listNode = ListNodeHelper.genListNode(new Integer[]{7, 14, 21, 28, 35, 42});
+        final ListNode listNode = ListNodeHelper.genListNode(new Integer[]{4, 6, 20});
         ListNodeHelper.printListNode(listNode);
-        final ListNode result = delete_node(listNode, 28);
+        final ListNode result = delete_node(listNode, 4);
         ListNodeHelper.printListNode(result);
     }
 }
