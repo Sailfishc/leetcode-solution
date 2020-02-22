@@ -23,11 +23,11 @@ public class L05_IntersectionPointofTwoLists {
 
         int moveLen = head1Length - head2Length;
         if (moveLen > 0) {
-            while (--moveLen > 0) {
+            while (moveLen-- > 0) {
                 head1 = head1.next;
             }
         } else {
-            while (++moveLen < 0) {
+            while (moveLen++ < 0) {
                 head2 = head2.next;
             }
         }
@@ -57,8 +57,21 @@ public class L05_IntersectionPointofTwoLists {
 
     public static void main(String[] args) {
         ListNode listNode = ListNodeHelper.genListNode(new Integer[]{1, 2, 3, 4});
-        ListNode listNode2 = ListNodeHelper.genListNode(new Integer[]{1, 2, 3, 4});
-        intersect(listNode, listNode2);
+        ListNode listNode2 = ListNodeHelper.genListNode(new Integer[]{8, 9, 7});
+        ListNode cur = listNode;
+        ListNode cur2 = listNode2;
+        while (cur2.next != null) {
+            cur2 = cur2.next;
+        }
+        while (cur != null) {
+            if (cur.val == 3) {
+                cur2.next = cur;
+                break;
+            }
+            cur = cur.next;
+        }
+        ListNode intersect = intersect(listNode, listNode2);
+        System.out.println(intersect.val);
 
     }
 }
