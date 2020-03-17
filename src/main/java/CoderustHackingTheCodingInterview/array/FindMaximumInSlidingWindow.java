@@ -15,7 +15,7 @@ public class FindMaximumInSlidingWindow {
 
     public static ArrayDeque<Integer> findMaxSlidingWindow(int[] arr, int windowSize) {
         ArrayDeque<Integer> result = new ArrayDeque<>();
-       int i = 0, j = 1;
+        int i = 0, j = 1;
         int max = arr[0];
         while (j < arr.length) {
             if (j - i + 1 <= windowSize) {
@@ -28,8 +28,8 @@ public class FindMaximumInSlidingWindow {
     }
 
 
-
     /*
+           Deque存储的是数组下标，且下标对于的值是递减的
            思路：
                 1. 设置双端队列
                 2. 遍历数组
@@ -63,6 +63,7 @@ public class FindMaximumInSlidingWindow {
         }
         return res;
     }
+
 
     public static void main(String[] args) {
         int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
