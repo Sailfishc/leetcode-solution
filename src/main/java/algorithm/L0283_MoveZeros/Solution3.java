@@ -21,6 +21,7 @@ public class Solution3 {
 
         while (nonZero < nums.length) {
             nums[nonZero++] = 0;
+
         }
     }
 }
