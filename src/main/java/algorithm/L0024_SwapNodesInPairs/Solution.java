@@ -26,18 +26,23 @@ public class Solution {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode pre = new ListNode(0);
-        pre.next = head;
-        ListNode tmp = pre;
-        while (tmp.next != null && tmp.next.next != null) {
-            ListNode start = tmp.next;
-            ListNode end = tmp.next.next;
-            tmp.next = end;
-            start.next = end.next;
-            end.next = start;
-            tmp = start;
+        ListNode dummy = new ListNode(0);
+
+        dummy.next = head;
+        ListNode cur = dummy;
+        while (head != null && head.next != null) {
+            //
+            ListNode firstNode = head;
+            final ListNode secondNode = head.next;
+
+            cur.next = secondNode;
+            firstNode.next = secondNode.next;
+            secondNode.next = firstNode;
+
+            cur = firstNode;
+            head = firstNode.next;
         }
-        return pre.next;
+        return dummy.next;
     }
 
 
@@ -60,9 +65,15 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        final ListNode head = ListNodeHelper.genListNode(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
-        final ListNode listNode = solution.swapPairs2(head);
-        ListNodeHelper.printListNode(listNode);
+//        final ListNode head = ListNodeHelper.genListNode(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+//        final ListNode listNode = solution.swapPairs2(head);
+//        ListNodeHelper.printListNode(listNode);
+
+
+        // swapPair
+        final ListNode head1 = ListNodeHelper.genListNode(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        final ListNode listNode1 = solution.swapPairs(head1);
+        ListNodeHelper.printListNode(listNode1);
 
     }
 
